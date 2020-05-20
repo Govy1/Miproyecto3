@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mnuirA2"
+        android:title="Ir A2" />
+    <item
+        android:id="@+id/mnuirA3"
+        android:title="Ir A3" />
+    <item
+        android:id="@+id/mnuagregar"
+        android:title="Agregar contacto" />
+</menu>
