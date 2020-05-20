@@ -4,12 +4,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AgregarContacto"></activity>
+        <activity android:name=".Actividad4"></activity>
+        <activity android:name=".AgregarContacto" />
         <activity android:name=".Actividad3" />
         <activity android:name=".Actividad2" />
         <activity android:name=".MainActivity">

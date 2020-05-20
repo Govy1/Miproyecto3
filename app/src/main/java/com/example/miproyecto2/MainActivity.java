@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.miproyecto2.Adaptadores.GridViewAvatares;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public static int contador=1;
     Button btnagregar, btnirA2, btnirA3;
     TextView lblnombre, lblalias;
-
+    GridViewAvatares gridviewavatares;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("Menu Principal");
 //        getSupportActionBar().hide(); //comando para quitar barra de estado
-        miscontactos.add(new Contacto( "Juan", "alias1", contador++));
-        miscontactos.add(new Contacto( "Carlos", "alias2", contador++));
-        miscontactos.add(new Contacto( "Maria", "alias3", contador++));
-        miscontactos.add(new Contacto( "Jose", "alias4", contador++));
-        miscontactos.add(new Contacto( "Luis", "alias5", contador++));
-        miscontactos.add(new Contacto( "Franco", "alias6", contador++));
+        gridviewavatares = new GridViewAvatares(this);
+        miscontactos.add(new Contacto( "Juan", "alias1", contador++, gridviewavatares.avataresArray[contador++]));
+        miscontactos.add(new Contacto( "Carlos", "alias2", contador++, gridviewavatares.avataresArray[contador++]));
+        miscontactos.add(new Contacto( "Maria", "alias3", contador++, gridviewavatares.avataresArray[contador++]));
+        miscontactos.add(new Contacto( "Jose", "alias4", contador++, gridviewavatares.avataresArray[contador++]));
+        miscontactos.add(new Contacto( "Luis", "alias5", contador++, gridviewavatares.avataresArray[contador++]));
+        miscontactos.add(new Contacto( "Franco", "alias6", contador++, gridviewavatares.avataresArray[contador++]));
 
         micontacto = new Contacto();
         btnagregar = (Button) findViewById(R.id.btnagregar);

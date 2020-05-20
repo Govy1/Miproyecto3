@@ -5,12 +5,14 @@ public class Contacto {
     String alias = "";
     int idcontacto = 0;
     String codigo = "";
+    int imagen = 0;
 
     public Contacto(){}
-    public Contacto(String nombre, String alias, int idContacto){
+    public Contacto(String nombre, String alias, int idContacto, int direccion){
         this.nombre = nombre;
         this.alias = alias;
         this.idcontacto = idContacto;
+        this.imagen = direccion;
     }
 
     public String getNombre() {
@@ -43,5 +45,13 @@ public class Contacto {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public int getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(int direccion) {
+        this.imagen = direccion;
     }
 }

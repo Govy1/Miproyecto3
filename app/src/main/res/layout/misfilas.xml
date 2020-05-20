@@ -7,10 +7,10 @@
 
     <ImageView
         android:id="@+id/imgimagen"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
         android:layout_weight="1"
-        app:srcCompat="@android:drawable/ic_popup_disk_full" />
+        app:srcCompat="@drawable/icono5" />
 
     <LinearLayout
         android:layout_width="match_parent"

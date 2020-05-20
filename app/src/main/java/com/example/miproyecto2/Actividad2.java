@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -136,8 +137,11 @@ public class Actividad2 extends AppCompatActivity {
             }
             TextView txtminombre = fila.findViewById(R.id.txtminombre);
             TextView txtmialias = fila.findViewById(R.id.txtmialias);
+            ImageView imgimagen = fila.findViewById(R.id.imgimagen);
             txtminombre.setText(miscontactos.get(position).getNombre());
             txtmialias.setText(miscontactos.get(position).getAlias());
+           // int a = miscontactos.get(position).getImagen();
+            imgimagen.setImageResource(miscontactos.get(position).getImagen());
             return fila;
         }
     }
