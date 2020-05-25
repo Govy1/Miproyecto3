@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
@@ -19,9 +20,9 @@ public class AgregarContacto extends AppCompatActivity {
     Button btnagregarcontacto;
     ImageView imgavatar;
     TextView lblprueba;
-
     GridView gvavatares;
     GridViewAvatares gridviewavatares;
+    int aa = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +41,23 @@ public class AgregarContacto extends AppCompatActivity {
             txtaliascontacto.setText(MainActivity.contactoactual.getAlias());
             imgavatar.setImageResource(MainActivity.contactoactual.getImagen());
             btnagregarcontacto.setText("Modificar");
-            imgavatar.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    Intent intent = new Intent(AgregarContacto.this,Actividad4.class);
-                    startActivity(intent);
-                    return false;
-                }
-            });
         }
+
+        gvavatares.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                gridviewavatares = new GridViewAvatares(AgregarContacto.this);
+                if (btnagregarcontacto.getText().equals("Modificar")){
+                    MainActivity.contactoactual.setImagen(gridviewavatares.avataresArray[position]);
+                    aa = gridviewavatares.avataresArray[position];
+                    imgavatar.setId(aa);
+                    imgavatar.setImageResource(aa);
+                }
+                aa = gridviewavatares.avataresArray[position];
+                imgavatar.setId(aa);
+                imgavatar.setImageResource(aa);
+            }
+        });
 
         btnagregarcontacto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +68,7 @@ public class AgregarContacto extends AppCompatActivity {
                     for (int i=0; i<MainActivity.miscontactos.size(); i++){
                         Contacto c = MainActivity.miscontactos.get(i);
                         if(c.getNombre().equals(MainActivity.contactoactual.getNombre()) && c.getAlias().equals(MainActivity.contactoactual.getAlias())){
-                            Contacto cm = new Contacto(nombre, alias, i,R.drawable.icono5);
+                            Contacto cm = new Contacto(nombre, alias, i, aa);//reparar
                             MainActivity.miscontactos.set(i, cm);
                             MainActivity.contactoactual = null;
                             break;
@@ -68,7 +77,7 @@ public class AgregarContacto extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Modificado", Toast.LENGTH_SHORT).show();
                 }else{
                     int id = MainActivity.miscontactos.size();
-                    MainActivity.miscontactos.add(new Contacto(nombre, alias, id,700001));
+                    MainActivity.miscontactos.add(new Contacto(nombre, alias, id,aa));
                     Toast.makeText(getApplicationContext(), "Agregado", Toast.LENGTH_SHORT).show();
                 }
                 Intent intent = new Intent(AgregarContacto.this,Actividad2.class);

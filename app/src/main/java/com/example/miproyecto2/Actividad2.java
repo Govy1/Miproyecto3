@@ -1,5 +1,6 @@
 package com.example.miproyecto2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +10,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -31,7 +35,8 @@ public class Actividad2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad2);
-        getSupportActionBar().hide();
+        getSupportActionBar().setTitle("Actividad 2");//titulo de barra
+        //getSupportActionBar().hide();//ocultar barra
         //declaracion de componentes
         lbldatos = (TextView) findViewById(R.id.lbldatos);
         lvmiscontactos = (ListView) findViewById(R.id.lvmiscontactos);
@@ -144,5 +149,29 @@ public class Actividad2 extends AppCompatActivity {
             imgimagen.setImageResource(miscontactos.get(position).getImagen());
             return fila;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menuactividad2, menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.mnactividad3:
+                Intent intent3 = new Intent(Actividad2.this, Actividad3.class);
+                startActivity(intent3);
+                break;
+            case R.id.mnAgregarContacto:
+                Intent intent4 = new Intent(Actividad2.this, AgregarContacto.class);
+                startActivity(intent4);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
